@@ -14,27 +14,50 @@ def modinv(a, m):
     else:
         return x % m
     
+def esprimo(a):
+    
+    if(number == 0 or number == 1 or number<1 ):
+        return False
+    
+    else:
+        for i in range(2,a):
+            if num % i ==0:
+                return False
+            else:
+                return True
+        
+        
+p=0
+q=0
+n=0
+fi=0
+e=0
+d=0
+while True:
+    print(p)
+    print("Ingrese el numero de opcion que desea elegir: ")
+    print("1. Generar claves públicas y privada ")
+    print("2. Encriptar ")
+    print("3. Desencriptar ")
+    opcion = int(input())
+    print(" ")
 
-print("Ingrese el numero de opcion que desea elegir: ")
-print("1. Generar claves públicas y privada ")
-print("2. Encriptar ")
-print("3. Desencriptar ")
-opcion = int(input())
-print(" ")
+    if(opcion == 1):
+        p = int(input("Ingrese el numero primo p mayor a 1: "))
+        q = int(input("Ingrese el numero primo q mayor a 1: "))
+        n = p*q
+        
+        print ("n es igual a: " + str(n))
+        fi = (p-1)*(q-1)
+        print ("fi es igual a: " + str(fi) + "\n")
+        
+        e = int(input("Ingrese el numero primo e mayor a 1 y menor a fi: "))
+        d= modinv(e,fi)
+        print("el exponente privado d es: " + str(d)+"\n")
+        print("Las claves generadas son:")
+        print("La clave publica es: (" + str(e) + "," + str(n)+")")
+        print("La clave privada es: (" + str(d) + "," + str(n)+")")
 
-if(opcion == 1):
-    p = int(input("Ingrese el numero primo p mayor a 1: "))
-    q = int(input("Ingrese el numero primo q mayor a 1: "))
-    n = p*q
-    print ("n es igual a: " + str(n))
-    fi = (p-1)*(q-1)
-    print ("fi es igual a: " + str(fi) + "\n")
-    e = int(input("Ingrese el numero primo e mayor a 1 y menor a fi: "))
-    d= modinv(e,fi)
-    print("el exponente privado d es: " + str(d)+"\n")
-    print("Las claves generadas son:")
-    print("La clave publica es: (" + str(e) + "," + str(n)+")")
-    print("La clave privada es: (" + str(d) + "," + str(n)+")")
 
 
     
