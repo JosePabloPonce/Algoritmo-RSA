@@ -1,5 +1,3 @@
-
-
 #https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
 def egcd(a, b):
     if a == 0:
@@ -11,7 +9,7 @@ def egcd(a, b):
 def modinv(a, m):
     g, x, y = egcd(a, m)
     if g != 1:
-        raise Exception('Inverso modular no existe')
+        return False
     else:
         return x % m
     
@@ -59,9 +57,10 @@ while True:
         print ("fi es igual a: " + str(fi) + "\n")
         
         while True:
-            e = int(input("Ingrese el numero primo e mayor a 1 y menor a fi: "))
-            if(esprimo(e) and e<fi):
-                break
+            e = int(input("Ingrese el numero primo e mayor a 1, menor a fi y que tenga inverso modular con fi: "))
+            if(modinv(e,fi) != False):
+                if(esprimo(e) and e<fi): 
+                    break
             
         d= modinv(e,fi)
         print("el exponente privado d es: " + str(d)+"\n")
@@ -70,8 +69,5 @@ while True:
         print("La clave publica es: (" + str(e) + "," + str(n)+")")
         print("La clave privada es: (" + str(d) + "," + str(n)+")")
         
-
-
-
 
     
